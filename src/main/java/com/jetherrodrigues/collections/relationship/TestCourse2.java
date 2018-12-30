@@ -1,6 +1,7 @@
 package com.jetherrodrigues.collections.relationship;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.jetherrodrigues.domain.Class;
@@ -25,7 +26,10 @@ public class TestCourse2 {
 		System.out.println(imutableClasses);
 		
 		List<Class> mutableClasses = new ArrayList<Class>(imutableClasses);
+		Collections.sort(mutableClasses);
+		System.out.println(mutableClasses);
 		
+		System.out.println("Total time of classes: " + javaCollections.getTotalTimeOfClass());
 	}
 
 }

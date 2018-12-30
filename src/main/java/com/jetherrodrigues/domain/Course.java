@@ -16,6 +16,10 @@ public class Course implements Serializable, Comparable<Course> {
 
 	private String nome;
 	private String instrutor;
+	
+	@SuppressWarnings("unused")
+	private int totalTimeOfClass;
+	
 	private List<Class> classes = new ArrayList<>();
 
 	public Course(String nome, String instrutor) {
@@ -36,7 +40,19 @@ public class Course implements Serializable, Comparable<Course> {
 		return Collections.unmodifiableList(classes);
 	}
 	
+	public int getTotalTimeOfClass() {
+		/**
+		 * old way
+		 */
+		//return totalTimeOfClass;
+		/**
+		 * new way
+		 */
+		return this.classes.stream().mapToInt(Class::getTime).sum();
+	}
+	
 	public void add(Class c) {
+		this.totalTimeOfClass += c.getTime();
 		this.classes.add(c);
 	}
 
