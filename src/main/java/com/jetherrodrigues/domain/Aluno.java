@@ -1,6 +1,7 @@
 package com.jetherrodrigues.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * 
@@ -29,6 +30,23 @@ public final class Aluno implements Serializable, Comparable<Aluno>{
 	@Override
 	public int compareTo(Aluno outro) {
 		return this.nome.compareTo(outro.nome);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, numeroMatricula);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(nome, other.nome) && numeroMatricula == other.numeroMatricula;
 	}
 
 	@Override
