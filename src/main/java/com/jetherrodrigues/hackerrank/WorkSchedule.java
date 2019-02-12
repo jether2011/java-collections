@@ -9,7 +9,7 @@ import java.util.List;
  * @author jether.rodrigues
  *
  */
-public class Solution implements Serializable {
+public class WorkSchedule implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
